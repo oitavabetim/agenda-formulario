@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oitava Betim - Reserva de Espaço</title>
+    <link rel="icon" href="img/oitavaIgrejaIcon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="img/oitavaIgrejaIcon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="img/oitavaIgrejaIcon-180x180.png" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/lib/waitme/waitMe.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <img src="img/oitavaIgrejaBetim.png" alt="Logo Oitava Igreja Betim" class="img-fluid">
+        </div>
+        <h2 class="text-primary text-center">Reserva de Espaço</h2>
+        <form id="reservationForm" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="eventDate">Dia da Programação:</label>
+                <input type="date" id="eventDate" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o dia da programação.</div>
+            </div>
+            <div class="form-group">
+                <label for="startTime">Horário de Início:</label>
+                <input type="time" id="startTime" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o horário de início.</div>
+            </div>
+            <div class="form-group">
+                <label for="endTime">Horário de Fim:</label>
+                <input type="time" id="endTime" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o horário de fim.</div>
+            </div>
+            <div class="form-group">
+                <label for="space">Espaço:</label>
+                <select id="space" class="form-control" required>
+                    <option value="">Selecione um espaço</option>
+                    <option value="Templo">Templo</option>
+                    <option value="Sala01">Sala 01</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecione um espaço.</div>
+            </div>
+            <div class="form-group">
+                <label for="eventTitle">Nome da Programação:</label>
+                <input type="text" id="eventTitle" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o nome da programação.</div>
+            </div>
+            <div class="form-group">
+                <label for="eventOwner">Responsável:</label>
+                <input type="text" id="eventOwner" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o nome do responsável.</div>
+            </div>
+            <div class="form-group">
+                <label for="contactPhone">Telefone para Contato:</label>
+                <input type="tel" id="contactPhone" class="form-control" required>
+                <div class="invalid-feedback">Por favor, informe o telefone para contato.</div>
+            </div>
+            <div class="form-group">
+                <label for="eventNotes">Observações:</label>
+                <textarea id="eventNotes" class="form-control" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary d-block w-100">Reservar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/lib/waitme/waitMe.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
