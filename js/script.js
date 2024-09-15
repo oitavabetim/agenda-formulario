@@ -26,7 +26,7 @@ $(document).ready(function() {
         const diffInMinutes = (endDate - startDate) / (1000 * 60);
 
         if (diffInMinutes < 30) {
-            alert("O intervalo entre o horário de início e o horário de fim deve ser de pelo menos 30 minutos.");
+            alert("O intervalo entre o horário de início e o horário de fim, deve ser de pelo menos 30 minutos.");
             return;
         }
 
@@ -48,7 +48,8 @@ $(document).ready(function() {
         });
 
         $.ajax({
-            url: "http://localhost:7004/api/agendar",
+            url: "https://fun-agenda-prod.azurewebsites.net/api/agendar",
+            //url: "http://localhost:7004/api/agendar",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(reservationData),
