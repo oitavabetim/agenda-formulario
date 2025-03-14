@@ -30,6 +30,29 @@ $(document).ready(function() {
             return;
         }
 
+        // Bloqueio agendamento
+        const eventDate = $("#eventDate").val();
+        const dateNow = new Date();
+              dateNow.setHours(0, 0, 0, 0);
+        const dateNowDay = dateNow.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+        const [year, month, day] = eventDate.split("-").map(Number);
+        const reservationDate = new Date(year, month - 1, day); // Cria sem ajuste de fuso
+        reservationDate.setHours(0, 0, 0, 0); // Garante que a data esteja em meia-noite  
+
+        let startDateAllowedReservation = dateNow;
+
+        // Segunda a Quinta
+        if (dateNowDay >= 0 && dateNowDay <= 4) { 
+            startDateAllowedReservation.setDate(dateNow.getDate() + (8 - dateNowDay)); // Libera reserva para próxima segunda
+        } else { // Sexta a Domingo
+            startDateAllowedReservation.setDate(dateNow.getDate() + (8 - dateNowDay) + 7); // Libera reserva somente para próxima segunda da outra semana
+        }
+
+        if (reservationDate < startDateAllowedReservation) {
+            alert("Agenda bloqueada para registro de eventos antes do dia " + startDateAllowedReservation.toLocaleDateString("pt-BR") + ", garantindo que as equipes de diáconos e cozinha tenham tempo hábil para se organizar e melhor atender às programações.");
+            return;
+        }
+
         const reservationData = {
             eventDate: $("#eventDate").val(),
             startTime: $("#startTime").val(),
